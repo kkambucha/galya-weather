@@ -5,7 +5,9 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 
-const Logged = (props) => (
+import { Link } from 'react-router-dom';
+
+const MainMenu = (props) => (
     <IconMenu
         {...props}
         iconButtonElement={
@@ -14,12 +16,16 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-        <MenuItem primaryText="Погода в Москве" />
-        <MenuItem primaryText="О проекте" />
+        <MenuItem
+            containerElement={<Link to="/" />}
+            primaryText="Погода в Москве" />
+        <MenuItem
+            containerElement={<Link to="/about" />}
+            primaryText="О проекте" />
     </IconMenu>
 );
 
-Logged.muiName = 'IconMenu';
+MainMenu.muiName = 'IconMenu';
 
 class Sidebar extends Component {
     render() {
@@ -28,7 +34,7 @@ class Sidebar extends Component {
                 <AppBar
                     title="Galya-Weather App"
                     showMenuIconButton={false}
-                    iconElementRight={<Logged />}
+                    iconElementRight={<MainMenu />}
                 />
             </div>
         );

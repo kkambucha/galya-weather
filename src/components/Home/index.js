@@ -1,10 +1,12 @@
+import './Home.css';
 import React, { Component } from 'react';
+import WeatherCard from '../WeatherCard';
 
 class Home extends Component {
     render() {
         return (
-            <div>
-                Home page
+            <div className="b-home">
+                <WeatherCard/>
             </div>
         );
     }

@@ -1,17 +1,22 @@
+// basic
+import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import App from './components/App/App';
-import 'normalize.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
+
+// redux
 import { Provider } from 'react-redux';
-import Store from './store';
+import Redux from './redux';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Home from './components/Home/Home';
-import About from './components/About/About';
+// router
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
 
-const StoreInstance = Store();
+const StoreInstance = Redux();
 
 injectTapEventPlugin();
 
@@ -20,13 +25,10 @@ ReactDOM.render(
         <Provider store={StoreInstance}>
             <Router>
                 <div>
-                    <App/>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                    </ul>
+                    <Sidebar/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
+                    <Footer/>
                 </div>
             </Router>
         </Provider>
