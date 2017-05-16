@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class WeatherData extends Component {
 
     onButtonClcik () {
-        console.log(this.props);
         this.props.getWeather();
     }
 
