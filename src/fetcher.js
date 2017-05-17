@@ -3,7 +3,6 @@ import 'whatwg-fetch';
 class Fetcher {
 
     static getData (url, params = null) {
-        console.log(fetch(url));
         return fetch(url)
             .then(Fetcher.checkStatus)
             .then(Fetcher.parseJSON);

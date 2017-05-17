@@ -11,11 +11,14 @@ export function getWeather (weather) {
         });
 
         Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&units=metric&cnt=16&APPID=${OW_APPID}`)
-            .then((json) => {
+            .then((data) => {
                 dispatch({
                     type: GET_WEATHER_SUCCESS,
-                    payload: json
+                    payload: data
                 });
+            })
+            .catch(function(error) {
+                console.log('request failed', error)
             });
     };
 
