@@ -171,7 +171,7 @@ export function getTomorrowWeather () {
 
         firebase.database().ref().once('value').then(function(snapshot) {
             galyaWeather = snapshot.val();
-console.log(galyaWeather);
+
             Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&lang=ru&units=metric&cnt=2&APPID=${OW_APPID}`)
                 .then((data) => {
                     const weatherData = {
