@@ -4,6 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
+import TitleComponent from './Title';
+import './Sidebar.css';
 
 import { Link } from 'react-router-dom';
 
@@ -35,7 +37,7 @@ class Sidebar extends Component {
         return (
             <div>
                 <AppBar
-                    title="МетеоГаля"
+                    title={<TitleComponent />}
                     showMenuIconButton={false}
                     iconElementRight={<MainMenu />}
                 />

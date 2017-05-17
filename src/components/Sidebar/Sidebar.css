@@ -1,0 +1,16 @@
+.b-title {
+	display: inline-block;
+	line-height: normal;
+	padding-top: 18px;
+}
+.b-title__head {
+	font-size: 25px;
+	line-height: 10px;
+	font-weight: 500;
+	display: block;
+}
+.b-title__paragraph {
+	font-size: 13px;
+	font-style: italic;
+	line-height: 16px;
+}

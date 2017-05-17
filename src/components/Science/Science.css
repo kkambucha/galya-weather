@@ -1,0 +1,10 @@
+.b-science {
+	margin: 30px 15px;
+	max-width: 500px;
+}
+
+@media (min-width: 520px) {
+	.b-science {
+		margin: 30px auto;
+	}
+}
