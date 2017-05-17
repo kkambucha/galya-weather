@@ -15,6 +15,7 @@ import Redux from './redux';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
+import Science from './components/Science';
 
 const StoreInstance = Redux();
 
@@ -28,6 +29,7 @@ ReactDOM.render(
                     <Sidebar/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
+                    <Route path="/science" component={Science}/>
                     <Footer/>
                 </div>
             </Router>

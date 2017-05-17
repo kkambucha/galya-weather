@@ -1,0 +1,28 @@
+.b-weather-card {
+
+}
+.b-weather-card__text {
+	padding-top: 10px !important;
+}
+.b-weather-card__title {
+	/*padding-bottom: 0 !important;*/
+}
+.b-weather-card__galya-title {
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.b-weather-card__galya-text {
+	font-style: italic;
+	font-size: 20px;
+	font-weight: 300;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.b-weather-card__p {
+	margin: 0;
+}
+.b-weather-card__progress {
+	text-align: center;
+	padding: 50px 10px;
+}

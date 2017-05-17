@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import { Card } from 'material-ui/Card';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as weatherActions from './weatherActions';
 import WeatherData from './WeatherData';
+import './WeatherCard.css';
 
 class WeatherCard extends Component {
     render() {
-        const { user, weather, fetching } = this.props;
-        const { getWeather } = this.props.weatherActions;
+        const { fetching, todayWeather, tomorrowWeather } = this.props;
+        const { getTodayWeather, getTomorrowWeather } = this.props.weatherActions;
 
         return (
-            <div>
+            <div className="b-weather-card">
                 <Card>
-                    <CardHeader
-                        title="URL Avatar"
-                        subtitle="Subtitle"
-                    />
-                    <CardMedia
-                        overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                    >
-                        <img src="https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header" height={200} alt="Alt text" />
-                    </CardMedia>
-                    <CardTitle title="Card title" subtitle="Card subtitle" />
-                    <CardText>
-                        <WeatherData fetching={fetching} weather={weather} getWeather={getWeather}/>
-                        <h2>{ user }</h2>
-                        Lorem ipsum dolor sit amet.
-                    </CardText>
-                    <CardActions>
-                        <FlatButton label="Action1" />
-                    </CardActions>
+                    <Tabs>
+                        <Tab label="Сегодня" value="a">
+                            <div>
+                                <WeatherData day="today" fetching={fetching} getWeather={getTodayWeather} todayWeather={todayWeather}/>
+                            </div>
+                        </Tab>
+                        <Tab label="Завтра" value="b">
+                            <div>
+                                <WeatherData day="tomorrow" fetching={fetching} getWeather={getTomorrowWeather} tomorrowWeather={tomorrowWeather}/>
+                            </div>
+                        </Tab>
+                    </Tabs>
                 </Card>
             </div>
         );
@@ -40,7 +35,8 @@ class WeatherCard extends Component {
     static mapStateToProps (state) {
         return {
             user: state.user,
-            weather: state.weather,
+            todayWeather: state.todayWeather,
+            tomorrowWeather: state.tomorrowWeather,
             fetching: state.fetching
         }
     }

@@ -2,5 +2,12 @@
 	background: rgb(0, 188, 212);
 	font-family: 'Roboto', sans-serif;
 	color: #fff;
-	padding: 10px;
+	padding: 15px 20px;
+}
+.b-footer__mailto {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	font-size: 13px;
+	padding-top: 5px;
 }

@@ -20,6 +20,9 @@ const MainMenu = (props) => (
             containerElement={<Link to="/" />}
             primaryText="Погода в Москве" />
         <MenuItem
+            containerElement={<Link to="/science" />}
+            primaryText="Научная основа" />
+        <MenuItem
             containerElement={<Link to="/about" />}
             primaryText="О проекте" />
     </IconMenu>
@@ -32,7 +35,7 @@ class Sidebar extends Component {
         return (
             <div>
                 <AppBar
-                    title="Galya-Weather App"
+                    title="МетеоГаля"
                     showMenuIconButton={false}
                     iconElementRight={<MainMenu />}
                 />

@@ -5,9 +5,9 @@ import WeatherCard from '../WeatherCard';
 class Home extends Component {
     render() {
         return (
-            <div className="b-home">
-                <WeatherCard/>
-            </div>
+        <div className="b-home">
+            <WeatherCard/>
+        </div>
         );
     }
 }
