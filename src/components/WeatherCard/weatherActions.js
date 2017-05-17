@@ -1,4 +1,6 @@
+import 'whatwg-fetch';
 import { GET_WEATHER, GET_WEATHER_SUCCESS } from '../../constants/WeatherCard';
+import { OW_APPID } from '../../constants/basic';
 
 export function getWeather (weather) {
 
@@ -7,12 +9,17 @@ export function getWeather (weather) {
             type: GET_WEATHER,
             payload: {}
         });
-        setTimeout(() => {
-            dispatch({
-                type: GET_WEATHER_SUCCESS,
-                payload: [1,2,3,4,5]
+
+        fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&units=metric&cnt=16&APPID=${OW_APPID}`)
+            .then((response) => {
+                return response.json();
             })
-        }, 2000)
+            .then((json) => {
+                dispatch({
+                    type: GET_WEATHER_SUCCESS,
+                    payload: json
+                });
+            });
     };
 
 }

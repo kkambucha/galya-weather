@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class WeatherData extends Component {
 
-    onButtonClcik () {
+    componentDidMount () {
         this.props.getWeather();
     }
 
@@ -12,7 +12,6 @@ class WeatherData extends Component {
 
         return (
             <div>
-                <span onClick={this.onButtonClcik.bind(this)}>Button</span>
                 {
                     fetching ?
                         <p>Загрузка...</p>

@@ -26,35 +26,30 @@ class WeatherCard extends Component {
                     <CardTitle title="Card title" subtitle="Card subtitle" />
                     <CardText>
                         <WeatherData fetching={fetching} weather={weather} getWeather={getWeather}/>
-                        <h1>Weather Card</h1>
                         <h2>{ user }</h2>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                        Lorem ipsum dolor sit amet.
                     </CardText>
                     <CardActions>
                         <FlatButton label="Action1" />
-                        <FlatButton label="Action2" />
                     </CardActions>
                 </Card>
             </div>
         );
     }
-}
 
-function mapStateToProps (state) {
-    return {
-        user: state.user,
-        weather: state.weather,
-        fetching: state.fetching
+    static mapStateToProps (state) {
+        return {
+            user: state.user,
+            weather: state.weather,
+            fetching: state.fetching
+        }
+    }
+
+    static mapDispatchToProps (dispatch) {
+        return {
+            weatherActions: bindActionCreators(weatherActions, dispatch)
+        }
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        weatherActions: bindActionCreators(weatherActions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherCard);
+export default connect(WeatherCard.mapStateToProps, WeatherCard.mapDispatchToProps)(WeatherCard);
