@@ -22,13 +22,13 @@ const MainMenu = (props) => (
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
         <MenuItem
-            containerElement={<Link to="/" />}
+            containerElement={<Link to="/meteogalya/" />}
             primaryText="Погода в Москве" />
         <MenuItem
-            containerElement={<Link to="/science" />}
+            containerElement={<Link to="/meteogalya/science" />}
             primaryText="Научная основа" />
         <MenuItem
-            containerElement={<Link to="/about" />}
+            containerElement={<Link to="/meteogalya/about" />}
             primaryText="О проекте" />
     </IconMenu>
 );

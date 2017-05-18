@@ -27,9 +27,9 @@ ReactDOM.render(
             <Router>
                 <div>
                     <Sidebar/>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/science" component={Science}/>
+                    <Route exact path="/meteogalya/" component={Home}/>
+                    <Route path="/meteogalya/about" component={About}/>
+                    <Route path="/meteogalya/science" component={Science}/>
                     <Footer/>
                 </div>
             </Router>

@@ -73,11 +73,8 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
         windStatus,
         rainStatus,
         sunnyStatus,
-        weatherRnd,
         cloudyStatus,
         galyaStatus = [];
-
-    weatherRnd = parseInt(Math.random() * 10, 10);
 
     from = parseInt(openWeatherObj.temp.day, 10);
     to = parseInt(openWeatherObj.temp.max, 10);
@@ -97,7 +94,7 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
     }
 
     // rain
-    if (openWeatherObj.clouds > 50 && openWeatherObj.rain) {
+    if (openWeatherObj.clouds > 40 && openWeatherObj.rain) {
         rainStatus = 1;
     } else {
         rainStatus = 0;
