@@ -7,6 +7,8 @@ import RainImg from '../../img/rain.jpg';
 import SunImg from '../../img/sun.jpg';
 import WindImg from '../../img/wind.jpg';
 
+import { CHANGE_TOWN } from '../../constants/Title';
+
 const firebaseConfig = {
     apiKey: FB_KEY,
     authDomain: FB_DOMAIN,
@@ -120,7 +122,7 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
     return galyaStatus;
 }
 
-export function getTodayWeather (day) {
+export function getTodayWeather (town) {
 
     return (dispatch) => {
         dispatch({
@@ -131,7 +133,7 @@ export function getTodayWeather (day) {
         firebase.database().ref().once('value').then(function(snapshot) {
             galyaWeather = snapshot.val();
 
-            Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&lang=ru&units=metric&cnt=2&APPID=${OW_APPID}`)
+            Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${town}&lang=ru&units=metric&cnt=2&APPID=${OW_APPID}`)
                 .then((data) => {
                     const weatherData = {
                         galyaWeather: getGalyaMeteoData(galyaWeather.today, data.list[0])[0],
@@ -161,7 +163,7 @@ export function getTodayWeather (day) {
 
 }
 
-export function getTomorrowWeather () {
+export function getTomorrowWeather (town) {
 
     return (dispatch) => {
         dispatch({
@@ -172,7 +174,7 @@ export function getTomorrowWeather () {
         firebase.database().ref().once('value').then(function(snapshot) {
             galyaWeather = snapshot.val();
 
-            Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&lang=ru&units=metric&cnt=2&APPID=${OW_APPID}`)
+            Fetcher.getData(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${town}&lang=ru&units=metric&cnt=2&APPID=${OW_APPID}`)
                 .then((data) => {
                     const weatherData = {
                         galyaWeather: getGalyaMeteoData(galyaWeather.tomorrow, data.list[1])[0],
@@ -198,6 +200,17 @@ export function getTomorrowWeather () {
                 });
         });
 
+    };
+
+}
+
+export function changeTown (town) {
+
+    return (dispatch) => {
+        dispatch({
+            type: CHANGE_TOWN,
+            payload: town
+        });
     };
 
 }

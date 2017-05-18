@@ -1,6 +1,7 @@
 .b-home {
 	margin: 30px 15px;
 	max-width: 500px;
+	min-height: 500px;
 }
 
 @media (min-width: 520px) {

@@ -14,7 +14,15 @@ class WeatherData extends Component {
     }
 
     componentDidMount () {
-        this.props.getWeather();
+        this.props.getWeather(this.props.weatherTown);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(this.props.weatherTown);
+        console.log(nextProps.weatherTown);
+        if (this.props.weatherTown !== nextProps.weatherTown) {
+            this.props.getWeather(nextProps.weatherTown);
+        }
     }
 
     render() {
@@ -50,7 +58,8 @@ class WeatherData extends Component {
 }
 
 WeatherData.propTypes = {
-    getWeather: PropTypes.func.isRequired
+    getWeather: PropTypes.func.isRequired,
+    weatherTown: PropTypes.string.isRequired
 };
 
 export default WeatherData;

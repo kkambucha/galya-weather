@@ -5,6 +5,9 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import TitleComponent from './Title';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as weatherActions from '../WeatherCard/weatherActions';
 import './Sidebar.css';
 
 import { Link } from 'react-router-dom';
@@ -37,13 +40,25 @@ class Sidebar extends Component {
         return (
             <div>
                 <AppBar
-                    title={<TitleComponent />}
+                    title={<TitleComponent weatherTown={this.props.weatherTown} changeTown={this.props.weatherActions.changeTown} />}
                     showMenuIconButton={false}
                     iconElementRight={<MainMenu />}
                 />
             </div>
         );
     }
+
+    static mapStateToProps (state) {
+        return {
+            weatherTown: state.weather.weatherTown
+        }
+    }
+
+    static mapDispatchToProps (dispatch) {
+        return {
+            weatherActions: bindActionCreators(weatherActions, dispatch)
+        }
+    }
 }
 
-export default Sidebar;
+export default connect(Sidebar.mapStateToProps, Sidebar.mapDispatchToProps)(Sidebar);

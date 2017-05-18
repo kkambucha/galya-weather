@@ -9,7 +9,8 @@ import './WeatherCard.css';
 
 class WeatherCard extends Component {
     render() {
-        const { fetching, todayWeather, tomorrowWeather } = this.props;
+        console.log(this.props);
+        const { fetching, todayWeather, tomorrowWeather, weatherTown } = this.props;
         const { getTodayWeather, getTomorrowWeather } = this.props.weatherActions;
 
         return (
@@ -18,12 +19,12 @@ class WeatherCard extends Component {
                     <Tabs>
                         <Tab label="Сегодня" value="a">
                             <div>
-                                <WeatherData day="today" fetching={fetching} getWeather={getTodayWeather} todayWeather={todayWeather}/>
+                                <WeatherData day="today" weatherTown={weatherTown} fetching={fetching} getWeather={getTodayWeather} todayWeather={todayWeather}/>
                             </div>
                         </Tab>
                         <Tab label="Завтра" value="b">
                             <div>
-                                <WeatherData day="tomorrow" fetching={fetching} getWeather={getTomorrowWeather} tomorrowWeather={tomorrowWeather}/>
+                                <WeatherData day="tomorrow" weatherTown={weatherTown} fetching={fetching} getWeather={getTomorrowWeather} tomorrowWeather={tomorrowWeather}/>
                             </div>
                         </Tab>
                     </Tabs>
@@ -33,11 +34,12 @@ class WeatherCard extends Component {
     }
 
     static mapStateToProps (state) {
+        console.log(state);
         return {
-            user: state.user,
-            todayWeather: state.todayWeather,
-            tomorrowWeather: state.tomorrowWeather,
-            fetching: state.fetching
+            weatherTown: state.weather.weatherTown,
+            todayWeather: state.weather.todayWeather,
+            tomorrowWeather: state.weather.tomorrowWeather,
+            fetching: state.weather.fetching
         }
     }
 
