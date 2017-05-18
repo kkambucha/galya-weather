@@ -5,7 +5,6 @@ import MenuItem from 'material-ui/MenuItem';
 
 class Title extends Component {
     handleSelectChange (event, index, value) {
-        console.log(value);
         this.props.changeTown(value);
     }
 

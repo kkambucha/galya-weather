@@ -129,8 +129,6 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
     } else if (cloudyStatus) {
         galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'cloud'), CloudyImg];
     }
-    console.log(openWeatherObj);
-    console.log(sunnyStatus, tempStatus, rainStatus, windStatus, weatherRnd);
 
     return galyaStatus;
 }

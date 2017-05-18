@@ -18,8 +18,6 @@ class WeatherData extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(this.props.weatherTown);
-        console.log(nextProps.weatherTown);
         if (this.props.weatherTown !== nextProps.weatherTown) {
             this.props.getWeather(nextProps.weatherTown);
         }

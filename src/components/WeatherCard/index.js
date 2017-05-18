@@ -9,7 +9,6 @@ import './WeatherCard.css';
 
 class WeatherCard extends Component {
     render() {
-        console.log(this.props);
         const { fetching, todayWeather, tomorrowWeather, weatherTown } = this.props;
         const { getTodayWeather, getTomorrowWeather } = this.props.weatherActions;
 
@@ -34,7 +33,6 @@ class WeatherCard extends Component {
     }
 
     static mapStateToProps (state) {
-        console.log(state);
         return {
             weatherTown: state.weather.weatherTown,
             todayWeather: state.weather.todayWeather,
