@@ -3,7 +3,7 @@ import { CHANGE_TOWN } from '../../constants/Title';
 
 const initialState = {
     fetching: true,
-    weatherTown: 'Novosibirsk'
+    weatherTown: 'Moscow'
 };
 
 export default function weather (state = initialState, action) {

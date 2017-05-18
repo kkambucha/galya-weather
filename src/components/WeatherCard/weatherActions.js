@@ -6,6 +6,7 @@ import ColdImg from '../../img/cold.jpg';
 import RainImg from '../../img/rain.jpg';
 import SunImg from '../../img/sun.jpg';
 import WindImg from '../../img/wind.jpg';
+import CloudyImg from '../../img/cloudy.jpg';
 
 import { CHANGE_TOWN } from '../../constants/Title';
 
@@ -73,6 +74,7 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
         rainStatus,
         sunnyStatus,
         weatherRnd,
+        cloudyStatus,
         galyaStatus = [];
 
     weatherRnd = parseInt(Math.random() * 10, 10);
@@ -95,7 +97,7 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
     }
 
     // rain
-    if (openWeatherObj.clouds > 60 && openWeatherObj.rain) {
+    if (openWeatherObj.clouds > 50 && openWeatherObj.rain) {
         rainStatus = 1;
     } else {
         rainStatus = 0;
@@ -108,16 +110,27 @@ function getGalyaMeteoData (galyaDateAll, openWeatherObj) {
         sunnyStatus = 0;
     }
 
+    // cloudy
+    if (openWeatherObj.clouds > 40 && !sunnyStatus && !rainStatus && !windStatus && !tempStatus) {
+        cloudyStatus = 1;
+    } else {
+        cloudyStatus = 0;
+    }
+
     // chose weather
     if (sunnyStatus) {
         galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'sun'), SunImg];
     } else if (tempStatus) {
         galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'cold'), ColdImg];
-    } else if (rainStatus && weatherRnd > 4) {
+    } else if (rainStatus) {
         galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'rain'), RainImg];
-    } else if (windStatus && weatherRnd <= 4) {
+    } else if (windStatus) {
         galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'wind'), WindImg];
+    } else if (cloudyStatus) {
+        galyaStatus = [getRandomGalyaStatus(galyaDateAll, 'cloud'), CloudyImg];
     }
+    console.log(openWeatherObj);
+    console.log(sunnyStatus, tempStatus, rainStatus, windStatus, weatherRnd);
 
     return galyaStatus;
 }
