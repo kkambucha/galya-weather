@@ -23,7 +23,7 @@ const MainMenu = (props) => (
     >
         <MenuItem
             containerElement={<Link to="/meteogalya/" />}
-            primaryText="Погода в Москве" />
+            primaryText="Погода" />
         <MenuItem
             containerElement={<Link to="/meteogalya/science" />}
             primaryText="Научная основа" />
