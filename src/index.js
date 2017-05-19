@@ -28,8 +28,8 @@ ReactDOM.render(
                 <div>
                     <Sidebar/>
                     <Route exact path="/meteogalya/" component={Home}/>
-                    <Route path="/meteogalya/about" component={About}/>
-                    <Route path="/meteogalya/science" component={Science}/>
+                    <Route path="/meteogalya/about/" component={About}/>
+                    <Route path="/meteogalya/science/" component={Science}/>
                     <Footer/>
                 </div>
             </Router>

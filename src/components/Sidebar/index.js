@@ -25,10 +25,10 @@ const MainMenu = (props) => (
             containerElement={<Link to="/meteogalya/" />}
             primaryText="Погода" />
         <MenuItem
-            containerElement={<Link to="/meteogalya/science" />}
+            containerElement={<Link to="/meteogalya/science/" />}
             primaryText="Научная основа" />
         <MenuItem
-            containerElement={<Link to="/meteogalya/about" />}
+            containerElement={<Link to="/meteogalya/about/" />}
             primaryText="О проекте" />
     </IconMenu>
 );
