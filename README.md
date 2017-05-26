@@ -8,3 +8,5 @@ It's weather-app. Weather with Galya's biometrical indicators.
 
 Для запуска npm start после чего в строке браузера поправить URL на http://localhost:3000/meteogalya/
 Просто у меня на хостинге оно в папке лежит и так удобнее.
+
+Работающее можно посмотреть здесь - http://bozekakoikotik.ru/meteogalya
