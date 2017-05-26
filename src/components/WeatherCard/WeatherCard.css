@@ -1,11 +1,15 @@
 .b-weather-card {
-
+	margin: 30px 15px;
+	max-width: 500px;
+	min-height: 500px;
+}
+@media (min-width: 520px) {
+	.b-weather-card {
+		margin: 30px auto;
+	}
 }
 .b-weather-card__text {
 	padding-top: 10px !important;
-}
-.b-weather-card__title {
-	/*padding-bottom: 0 !important;*/
 }
 .b-weather-card__galya-title {
 	font-size: 16px;

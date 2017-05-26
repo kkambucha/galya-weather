@@ -13,7 +13,7 @@ import Redux from './redux';
 
 // router
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from './components/Home';
+import WeatherCard from './components/WeatherCard';
 import About from './components/About';
 import Science from './components/Science';
 
@@ -27,7 +27,7 @@ ReactDOM.render(
             <Router>
                 <div>
                     <Sidebar/>
-                    <Route exact path="/meteogalya/" component={Home}/>
+                    <Route exact path="/meteogalya/" component={WeatherCard}/>
                     <Route path="/meteogalya/about/" component={About}/>
                     <Route path="/meteogalya/science/" component={Science}/>
                     <Footer/>

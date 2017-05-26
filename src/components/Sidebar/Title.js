@@ -4,6 +4,11 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 class Title extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSelectChange = this.handleSelectChange.bind(this);
+    }
+
     handleSelectChange (event, index, value) {
         this.props.changeTown(value);
     }
@@ -19,7 +24,7 @@ class Title extends Component {
                         floatingLabelStyle={{color: '#ffffff'}}
                         labelStyle={{color: '#ffffff'}}
                         value={this.props.weatherTown}
-                        onChange={this.handleSelectChange.bind(this)}
+                        onChange={this.handleSelectChange}
                     >
                       <MenuItem value={'Moscow'} primaryText="Москва" />
                       <MenuItem value={'Krasnodar'} primaryText="Краснодар" />

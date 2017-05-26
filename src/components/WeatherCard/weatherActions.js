@@ -58,7 +58,7 @@ function getRandomGalyaStatus (galyaDateAll, fraseType) {
         key;
 
     for (key in galyaDateAll) {
-        if (key.indexOf(fraseType) === 0) {
+        if (key.indexOf(fraseType) === 0 && galyaDateAll.hasOwnProperty(key)) {
             frasesArr.push(galyaDateAll[key]);
         }
     }
